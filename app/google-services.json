@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "83490056050",
+    "project_id": "carhelper-b01cd",
+    "storage_bucket": "carhelper-b01cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83490056050:android:ff7d399bd5c23e4501dfeb",
+        "android_client_info": {
+          "package_name": "com.example.carhelperapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz52tjhRFyVLWbhNfvTq-vNkm6p7CTgwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
