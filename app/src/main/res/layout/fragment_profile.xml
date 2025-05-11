@@ -10,30 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/lato"
+        android:fontFamily="casual"
         android:text="Welcome"
         android:textAlignment="center"
         android:textSize="40sp"
-        android:textStyle=""
-
-        />
+        android:textStyle="bold"
+        android:textColor="@color/green" />
 
     <TextView
+        android:id="@+id/sign_out"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="550dp"
-        android:fontFamily="@font/lato"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:fontFamily="casual"
         android:text="@string/sign_out"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/green"/>
 
     <TextView
+        android:id="@+id/exit"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="600dp"
-        android:fontFamily="@font/lato"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:fontFamily="casual"
         android:text="@string/exit"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/green"/>
 </FrameLayout>
