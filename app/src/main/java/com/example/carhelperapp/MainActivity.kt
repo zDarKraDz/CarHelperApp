@@ -1,12 +1,9 @@
 package com.example.carhelperapp
 
 import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -16,9 +13,7 @@ import com.yandex.mapkit.mapview.MapView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mapView:MapView
-
-
+    private lateinit var mapView: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             changeFragment(MapFragment())
         }
-        //mapView = binding.mapView
 
         binding.bottomNavigationView.menu.findItem(R.id.map).isChecked = true
 
@@ -49,11 +43,11 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(ProfileFragment())
                 }
             }
-
             return@setOnItemSelectedListener true
         }
 
     }
+    // Функция смены фрагментов экрана
     private fun changeFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
