@@ -1,5 +1,6 @@
 package com.example.carhelperapp
 
+import android.util.Log
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -10,7 +11,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.carhelperapp.databinding.FragmentMapBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.geometry.Point
 
 class MapFragment : Fragment() {
     private var _binding: FragmentMapBinding? = null
@@ -45,12 +49,31 @@ class MapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         checkLocationPermissions()
+        //mapManager.moveCameraTo(Point(47.219775, 39.718409), 10f)
+        binding.targetButton.setOnClickListener{
+            val point = mapManager.getCurrentLocation()
+            mapManager.moveCameraTo(point = point!!, 15f)
+        }
+
+        binding.requestButton.setOnClickListener{
+            val userId = getUId()
+            val point = mapManager.getCurrentLocation()
+            mapManager.saveLocationToFireStore(
+                point = point!!,
+                userId = userId
+            )
+        }
     }
 
     private fun initializeMap(withLocation: Boolean) {
-
+        mapManager = MapManager(requireContext(), binding.mapView)
+        mapManager.enableLocationTracking(withLocation)
     }
 
+    private fun getUId(): String {
+        val userId = Firebase.auth.currentUser?.uid ?: ""
+        return userId
+    }
     private fun checkLocationPermissions() {
         when {
             ContextCompat.checkSelfPermission(
@@ -60,7 +83,7 @@ class MapFragment : Fragment() {
                 initializeMap(true)
             }
             shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
-                // Показать объяснение, почему нужно разрешение
+                // Можно показать диалог с объяснением необходимости разрешений
                 requestLocationPermissions()
             }
             else -> {
@@ -91,8 +114,8 @@ class MapFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        mapManager.dispose()
         super.onDestroyView()
         _binding = null
     }
-
 }
