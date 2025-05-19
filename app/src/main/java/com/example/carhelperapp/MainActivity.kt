@@ -1,6 +1,5 @@
 package com.example.carhelperapp
 
-import android.Manifest
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +40,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile ->{
                     changeFragment(ProfileFragment())
+                }
+                R.id.request ->{
+                    changeFragment(RequestFragment())
                 }
             }
             return@setOnItemSelectedListener true

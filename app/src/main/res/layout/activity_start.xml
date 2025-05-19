@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".StartActivity"
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -71,8 +72,10 @@
         android:drawableStart="@drawable/mail"
         android:drawablePadding="15dp"
         android:hint="@string/email_or_phone_number"
+        android:textColorHint="@color/graphiteGray"
         android:padding="15dp"
         android:textSize="15sp"
+        android:textColor="@color/black"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +90,10 @@
         android:drawableStart="@drawable/lock"
         android:drawablePadding="15dp"
         android:hint="@string/password"
+        android:textColorHint="@color/graphiteGray"
         android:padding="15dp"
         android:textSize="15sp"
+        android:textColor="@color/black"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

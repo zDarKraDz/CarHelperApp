@@ -1,6 +1,5 @@
 package com.example.carhelperapp
 
-import android.util.Log
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -11,8 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.carhelperapp.databinding.FragmentMapBinding
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 
@@ -54,15 +51,6 @@ class MapFragment : Fragment() {
             val point = mapManager.getCurrentLocation()
             mapManager.moveCameraTo(point = point!!, 15f)
         }
-
-        binding.requestButton.setOnClickListener{
-            val userId = getUId()
-            val point = mapManager.getCurrentLocation()
-            mapManager.saveLocationToFireStore(
-                point = point!!,
-                userId = userId
-            )
-        }
     }
 
     private fun initializeMap(withLocation: Boolean) {
@@ -70,10 +58,6 @@ class MapFragment : Fragment() {
         mapManager.enableLocationTracking(withLocation)
     }
 
-    private fun getUId(): String {
-        val userId = Firebase.auth.currentUser?.uid ?: ""
-        return userId
-    }
     private fun checkLocationPermissions() {
         when {
             ContextCompat.checkSelfPermission(
@@ -114,8 +98,8 @@ class MapFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        mapManager.dispose()
         super.onDestroyView()
+        mapManager.dispose()
         _binding = null
     }
 }

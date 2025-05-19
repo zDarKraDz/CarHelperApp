@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RequestFragment"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yandex.mapkit.mapview.MapView
+            android:id="@+id/map_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/creating_a_request"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/green"
+
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/carModel"
+            android:layout_width="330dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/filling_text"
+            android:hint="@string/car_model"
+            android:textColorHint="@color/graphiteGray"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <EditText
+            android:id="@+id/require"
+            android:layout_width="330dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/filling_text"
+            android:hint="@string/mechanic_tow_truck"
+            android:textColorHint="@color/graphiteGray"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carModel" />
+
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="330dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/filling_text"
+            android:fontFamily="@font/lato"
+            android:hint="@string/phone_number"
+            android:textColorHint="@color/graphiteGray"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/require" />
+
+        <EditText
+            android:id="@+id/descriptionText"
+            android:layout_width="330dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/big_frame"
+            android:fontFamily="@font/lato"
+            android:gravity="top"
+            android:hint="@string/describe_your_problem"
+            android:textColorHint="@color/graphiteGray"
+            android:maxLength="300"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/requestButton"
+            android:layout_width="155dp"
+            android:layout_height="60dp"
+            android:background="@drawable/green_button"
+            android:text="@string/send_a_request"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
