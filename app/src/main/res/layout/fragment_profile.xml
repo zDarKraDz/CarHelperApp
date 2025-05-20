@@ -7,15 +7,29 @@
     tools:context=".ProfileFragment">
 
     <TextView
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:layout_marginTop="50dp"
         android:fontFamily="casual"
-        android:text="Welcome"
+        android:text="User name"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="@color/green" />
+
+    <TextView
+        android:id="@+id/mechanicView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:fontFamily="casual"
+        android:text="Go to mechnic's view"
+        android:textAlignment="center"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/sign_out"
